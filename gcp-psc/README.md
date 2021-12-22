@@ -18,7 +18,8 @@ Atlas PSC setup for **Replica set**:
 2. Create a Dedicated cluster with tier M10 or above. Do not enable sharding for this cluster if using M30+ clusters. Ensure you are using MongoDB version 4.x+ for this PoV.
 3. In the project's Security tab, choose to add a new user, e.g. adminuser, and for User Privileges specify Read and write to any database (make a note of the password you specify).
 4. We are not using any external IP address. We don't need to whitelist any IP address as such. (In shared project - Do not delete any ip whitelisted). 
-5. Navigate to **Private Endpoints** tab in **Network Access** and click on Add Private endpoint.
+5. Navigate to **Private Endpoints** tab in **Network Access** and click on Add Private endpoint.  
+    ><
     ![Valid Document](img/atlas01.png "Valid Document")
     Select Google Cloud and Click Next.
     ![Valid Document](img/atlas02.png "Valid Document")
@@ -26,7 +27,7 @@ Atlas PSC setup for **Replica set**:
     ![Valid Document](img/atlas03.png "Valid Document")
     Once you create Next the private endpoints will get created.
     ![Valid Document](img/atlas04.png "Valid Document")
-    Once your Atlas Endpoint Service is ready, you will be able to create your Private Service Connect endpoints in your Google Cloud project using the Google Cloud CLI . When you create Private Service Connect endpoints, you specify a subnet in your VPC network; you may either create a new subnet to encapsulate your endpoints or use an existing one. Fill in your GCP project and VPC details (Read through the instructions by expanding the instructions on the same page). 
+    Once your Atlas Endpoint Service is ready, you will be able to create your Private Service Connect endpoints in your Google Cloud project using the Google Cloud CLI . When you create Private Service Connect endpoints, you specify a subnet in your VPC network; you may either create a new subnet to encapsulate your endpoints or use an existing one. Fill in your GCP project and VPC details (Read through the instructions by expanding the instructions on the same page).
 6. Install gcloud command line utility on your workstation. Copy the commands from popup on Atlas and save it as shell script and run using the shell command.
 7. Once the script completes running it will generate a Json file in the same location with name atlasEndpoints-<name of your psc>.json
 8. Upload the file using Upload file button on Next screen. 
