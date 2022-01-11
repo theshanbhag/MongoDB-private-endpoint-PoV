@@ -49,7 +49,7 @@ Choose **private endpoint** and click on Choose a connection method.
 ![Atlas connect](img/atlas07.png "atlas connect")
 
 ### Connecting to Atlas from a google compute instance using PSC:
-1. Create a VM instance with external IP disabled (with installed python dependencies. We have installed python and pymongo[srv] to run the python script on the VM and then disabled the external ip address for this PoV). The VM should satisfy one of the below conditions.
+1. Create a VM instance satisfying one of the below cases.
 
 #### Cases:
 * **Same VPC same subnet:** Accessible. 
@@ -57,22 +57,22 @@ Choose **private endpoint** and click on Choose a connection method.
 * **Same VPC different subnet different region:** Not accessible.
 * **Different VPC:** Not accessible  (on both internal IP only and with external IP).
 
-2. Install python dependencies and copy the connection string and run the script as shown below. Make sure that the public ip address is turned off for the instance before running the script.
+2. SSH into the VM instance and install python dependencies from _requirements.txt_ file. 
+```pip3 install -r requirements.txt. ``` 
+
+3. Once the requirements are installed edit the VM and disable the ephemeral ip from network tab. 
+4. Run the python script to connect to MongoDB atlas and access the data.
+```python3 run-mongo-script.py```
+
 ![GCP ssh](img/gcp_console01.png "gcp_console01")
 
    ![GCP ssh ](img/gcp_console02.png "gcp_console02")
 
-Sample Python Script:
-```
-import pymongo
-srv2 = "mongodb+srv://venkatesh:ashwin123@cluster0-pl-0-us-east1.t6hqq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-client = pymongo.MongoClient(srv2,tlsAllowInvalidCertificates=True)
-print(client.list_database_names())
-mydb = client["test"]
-mycol = mydb["test-coll"]
-x = mycol.find_one() 
-print(x)
-```
+
+### Execution:
+Run python script "run-mongo-script.py" to connect and test the connection from VM to MongoDB Atlas using GCP-PSC. 
 
 ### Results:
 You  should be able to connect to the MongoDB Cluster using MongoDB client installed on the VM instance and read documents from the cluster without using external IP (Disable the ephemeral IP address on the VM).
+
+### Conclusion
