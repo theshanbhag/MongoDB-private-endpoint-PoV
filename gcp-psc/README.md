@@ -28,10 +28,11 @@ Atlas PSC setup for **Replica set**:
     Once you create Next the private endpoints will get created.
     ![Valid Document](img/atlas04.png "Valid Document")
     Once your Atlas Endpoint Service is ready, you will be able to create your Private Service Connect endpoints in your Google Cloud project using the Google Cloud CLI . When you create Private Service Connect endpoints, you specify a subnet in your VPC network; you may either create a new subnet to encapsulate your endpoints or use an existing one. Fill in your GCP project and VPC details (Read through the instructions by expanding the instructions on the same page).
-6. Install gcloud command line utility on your workstation. Copy the commands from popup on Atlas and save it as shell script and run using the shell command.
-7. Once the script completes running it will generate a Json file in the same location with name atlasEndpoints-<name of your psc>.json
-8. Upload the file using Upload file button on Next screen. 
-9. Wait and check for the Endpoint status to change to Completed.
+6. Install [gcloud](https://cloud.google.com/sdk/docs/install) command line utility on your workstation. (Note: You need to have permission )
+7. Copy the commands from popup on Atlas and save it as shell script and run using the shell command.
+8. Once the script completes running it will generate a Json file in the same location with name atlasEndpoints-<name of your psc>.json
+9. Upload the file using Upload file button on Next screen. 
+10. Wait and check for the Endpoint status to change to Completed.
 
 ![Network Access](img/atlas05.png "Network Access")
 Atlas creates 50 service attachments for your google private service connect private endpoint. Each endpoint provided is attached to service attachment to enable private connectivity.
@@ -72,3 +73,6 @@ mycol = mydb["test-coll"]
 x = mycol.find_one() 
 print(x)
 ```
+
+###Results:
+You  should be able to connect to the MongoDB Cluster using MongoDB client installed on the VM instance and read documents from the cluster without using external IP (Disable the ephemeral IP address on the VM).
