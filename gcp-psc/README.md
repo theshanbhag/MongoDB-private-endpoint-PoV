@@ -74,5 +74,5 @@ x = mycol.find_one()
 print(x)
 ```
 
-###Results:
+### Results:
 You  should be able to connect to the MongoDB Cluster using MongoDB client installed on the VM instance and read documents from the cluster without using external IP (Disable the ephemeral IP address on the VM).
