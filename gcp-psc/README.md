@@ -8,8 +8,7 @@ The PoV is a walk-through for using Private Service Connect to connect mongoDB c
 ### Pre-requisites for PoV:
 
 GCP:
-1. Access to GCP console with permissions to create/update/delete([Compute Network Admin](https://cloud.google.com/iam/docs/understanding-roles#compute.networkAdmin)) on VPC network to
-Create a subnet with at least 50 free IP addresses. Create Custom VPC network and subnet on the region of your preference.
+1. Access to GCP console with permissions to create/update/delete([Compute Network Admin](https://cloud.google.com/iam/docs/understanding-roles#compute.networkAdmin)) on VPC network. Create Custom VPC network and subnet on the region of your preference (Should have more than 50 free ip addresses for PSC setup).
 2. Create egress firewall rules permit traffic to the internal IP address of the Google Cloud Private Service Connect endpoint.
 
 MongoDB:
